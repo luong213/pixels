@@ -1,0 +1,33 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+  <title>Land Pixel</title> 
+</head> 
+<body style="margin:0;padding:0;width:100%; height: 100%;"> 
+  <div style= "margin:5px">
+    <label for="landid">Land number: </label>
+    <input type="text" id="landid" name="landid" value="1" style= "width:70px">
+    <label for="step">Step: </label>
+    <input type="text" id="step" name="s" value="1" style= "width:50px">
+    <button type="button" onClick="btnGoOnClick()">Go</button>
+    <button class="btn warning">...</button>
+  </div>
+  <script>
+    function btnGoOnClick() {
+      let id = Number(document.getElementById("landid").value);
+      let step = Number(document.getElementById("step").value);
+      let next = id + step;
+      var url = "https://play.pixels.xyz/pixels/share/";
+      url = url + next;
+      document.getElementById('iframe').src = url;
+      document.getElementById('landid').value = next;
+    }
+  </script>
+  <script>
+    function autoResize(iframe) {
+      $(iframe).height($(iframe).contents().find('html').height());
+    }
+  </script>
+  <iframe id="iframe" name="iframe" src="https://play.pixels.xyz/pixels/share/910" style="height:907px;width:100%;border:none;overflow:hidden;" onload='javascript:(function(o){o.style.height=o.contentWindow.document.body.scrollHeight+"px";}(this));'></iframe>
+</body> 
+</html>
