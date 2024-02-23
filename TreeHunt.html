@@ -9,11 +9,21 @@
     <input type="text" id="landid" name="landid" value="1" style= "width:70px">
     <label for="step">Step: </label>
     <input type="text" id="step" name="s" value="1" style= "width:50px">
-    <button type="button" onClick="btnGoOnClick()">Go</button>
-    <button class="btn warning">...</button>
+    <button type="button" onClick="btnPrevOnClick()">Prev</button>
+    <button type="button" onClick="btnNextOnClick()">Next</button>
   </div>
   <script>
-    function btnGoOnClick() {
+    function btnPrevOnClick() {
+      let id = Number(document.getElementById("landid").value);
+      let step = Number(document.getElementById("step").value);
+      let prev = id - step;
+      var url = "https://play.pixels.xyz/pixels/share/";
+      url = url + prev;
+      document.getElementById('iframe').src = url;
+      document.getElementById('landid').value = prev;
+    }
+    
+    function btnNextOnClick() {
       let id = Number(document.getElementById("landid").value);
       let step = Number(document.getElementById("step").value);
       let next = id + step;
@@ -22,8 +32,7 @@
       document.getElementById('iframe').src = url;
       document.getElementById('landid').value = next;
     }
-  </script>
-  <script>
+
     function autoResize(iframe) {
       $(iframe).height($(iframe).contents().find('html').height());
     }
