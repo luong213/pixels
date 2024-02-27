@@ -36,8 +36,8 @@
     <button type="button" onClick="btnNextOnClick()">Next</button>
   </div>
   <div style= "margin:5px">
-    <span id="landleft" style=" margin-right: 47.6%">909</span>
-    <span id="landright">910</span>
+    <span id="landleft" style=" margin-right: 47.6%">_909</span>
+    <span id="landright">_910</span>
   </div>
   <script>
     function btnPrevOnClick() {
@@ -46,11 +46,11 @@
       let prev = id - step;
       var url = "https://play.pixels.xyz/pixels/share/";
       document.getElementById('iframe2').src = url + prev;
-      document.getElementById('landright').textContent = prev;
+      document.getElementById('landright').textContent = prev.padStart(4, '_');
       prev = prev - 1;
       document.getElementById('iframe1').src = url + prev;
       document.getElementById('landid').value = prev;
-      document.getElementById('landleft').textContent = prev;
+      document.getElementById('landleft').textContent = prev.padStart(4, '_');
     }
     
     function btnNextOnClick() {
@@ -59,11 +59,11 @@
       let next = id + step;
       var url = "https://play.pixels.xyz/pixels/share/";
       document.getElementById('iframe1').src = url + next;
-      document.getElementById('landleft').textContent = next;
+      document.getElementById('landleft').textContent = next.padStart(4, '_');
       next = next + 1;
       document.getElementById('iframe2').src = url + next;
       document.getElementById('landid').value = next;
-      document.getElementById('landright').textContent = next;
+      document.getElementById('landright').textContent = next.padStart(4, '_');
     }
   </script>
   <div id="root">
