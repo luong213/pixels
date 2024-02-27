@@ -17,25 +17,27 @@
        float:left;
        box-sizing:border-box;
    }
-   .iframe1 {
-       width: 50%;
-   }
+   .iframe1,
    .iframe2 {
        width: 50%;
    }
+   .landleft {
+    margin-right: 50%;
+  }
   </style>
 </head> 
 <body> 
   <div style= "margin:5px">
     <label for="landid">Land number: </label>
-    <input type="text" id="landid" name="landid" value="1" style= "width:70px">
+    <input type="text" id="landid" name="landid" value="910" style= "width:70px">
     <label for="step">Step: </label>
     <input type="text" id="step" name="s" value="1" style= "width:50px">
     <button type="button" onClick="btnPrevOnClick()">Prev</button>
     <button type="button" onClick="btnNextOnClick()">Next</button>
-    <br>
-    <label id="landleft"></label>
-    <label id="landright"></label>
+  </div>
+  <div style= "margin:5px">
+    <span id="landleft" style=" margin-right: 47.6%">909</span>
+    <span id="landright">910</span>
   </div>
   <script>
     function btnPrevOnClick() {
@@ -65,8 +67,8 @@
     }
   </script>
   <div id="root">
-    <iframe class="iframe1" id="iframe1" name="iframe1" src="https://play.pixels.xyz/pixels/share/910"></iframe>
-    <iframe class="iframe2" id="iframe2" name="iframe2" src="https://play.pixels.xyz/pixels/share/911"></iframe>
+    <iframe class="iframe1" id="iframe1" name="iframe1" src="https://play.pixels.xyz/pixels/share/909"></iframe>
+    <iframe class="iframe2" id="iframe2" name="iframe2" src="https://play.pixels.xyz/pixels/share/910"></iframe>
   </div>
 </body> 
 </html>
