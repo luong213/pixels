@@ -46,11 +46,11 @@
       let prev = id - step;
       var url = "https://play.pixels.xyz/pixels/share/";
       document.getElementById('iframe2').src = url + prev;
-      document.getElementById('landright').textContent = prev.padStart(4, '_');
+      document.getElementById('landright').textContent = String(prev).padStart(4, '_');
       prev = prev - 1;
       document.getElementById('iframe1').src = url + prev;
       document.getElementById('landid').value = prev;
-      document.getElementById('landleft').textContent = prev.padStart(4, '_');
+      document.getElementById('landleft').textContent = String(prev).padStart(4, '_');
     }
     
     function btnNextOnClick() {
@@ -59,11 +59,11 @@
       let next = id + step;
       var url = "https://play.pixels.xyz/pixels/share/";
       document.getElementById('iframe1').src = url + next;
-      document.getElementById('landleft').textContent = next.padStart(4, '_');
+      document.getElementById('landleft').textContent = String(next).padStart(4, '_');
       next = next + 1;
       document.getElementById('iframe2').src = url + next;
       document.getElementById('landid').value = next;
-      document.getElementById('landright').textContent = next.padStart(4, '_');
+      document.getElementById('landright').textContent = String(next).padStart(4, '_');
     }
   </script>
   <div id="root">
