@@ -25,21 +25,18 @@
     margin-right: 50%;
   }
   </style>
-</head> 
-<body> 
-  <div style= "margin:5px">
-    <label for="landid">Land number: </label>
-    <input type="text" id="landid" name="landid" value="910" style= "width:70px">
-    <label for="step">Step: </label>
-    <input type="text" id="step" name="s" value="1" style= "width:50px">
-    <button type="button" onClick="btnPrevOnClick()">Prev</button>
-    <button type="button" onClick="btnNextOnClick()">Next</button>
-  </div>
-  <div style= "margin:5px">
-    <span id="landleft" style=" margin-right: 47%">_909</span>
-    <span id="landright">_910</span>
-  </div>
   <script>
+    document.onkeydown = function(e) {
+      switch (e.keyCode) {
+          case 37:
+              document.getElementById('prev').click();
+              break;
+          case 39:
+              document.getElementById('next').click();
+              break;
+      }
+    };
+
     function btnPrevOnClick() {
       let id = Number(document.getElementById("landid").value);
       let step = Number(document.getElementById("step").value);
@@ -78,6 +75,21 @@
       document.getElementById('landright').textContent = String(next).padStart(4, '_');
     }
   </script>
+</head> 
+<body> 
+  <div style= "margin:5px">
+    <label for="landid">Land number: </label>
+    <input type="text" id="landid" name="landid" value="910" style= "width:70px">
+    <label for="step">Step: </label>
+    <input type="text" id="step" name="s" value="1" style= "width:50px">
+    <button type="button" id = "prev" onClick="btnPrevOnClick()">Prev</button>
+    <button type="button" id = "next" onClick="btnNextOnClick()">Next</button>
+  </div>
+  <div style= "margin:5px">
+    <span id="landleft" style=" margin-right: 47%">_909</span>
+    <span id="landright">_910</span>
+  </div>
+  
   <div id="root">
     <iframe class="iframe1" id="iframe1" name="iframe1" src="https://play.pixels.xyz/pixels/share/909"></iframe>
     <iframe class="iframe2" id="iframe2" name="iframe2" src="https://play.pixels.xyz/pixels/share/910"></iframe>
