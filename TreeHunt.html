@@ -44,10 +44,16 @@
       let id = Number(document.getElementById("landid").value);
       let step = Number(document.getElementById("step").value);
       let prev = id - step;
+      if(prev < 1) {
+        prev = 5000;
+      }
       var url = "https://play.pixels.xyz/pixels/share/";
       document.getElementById('iframe2').src = url + prev;
       document.getElementById('landright').textContent = String(prev).padStart(4, '_');
       prev = prev - 1;
+      if(prev < 1) {
+        prev = 5000;
+      }
       document.getElementById('iframe1').src = url + prev;
       document.getElementById('landid').value = prev;
       document.getElementById('landleft').textContent = String(prev).padStart(4, '_');
@@ -57,10 +63,16 @@
       let id = Number(document.getElementById("landid").value);
       let step = Number(document.getElementById("step").value);
       let next = id + step;
+      if(next > 5000) {
+        next = 1;
+      }
       var url = "https://play.pixels.xyz/pixels/share/";
       document.getElementById('iframe1').src = url + next;
       document.getElementById('landleft').textContent = String(next).padStart(4, '_');
       next = next + 1;
+      if(next > 5000) {
+        next = 1;
+      }
       document.getElementById('iframe2').src = url + next;
       document.getElementById('landid').value = next;
       document.getElementById('landright').textContent = String(next).padStart(4, '_');
