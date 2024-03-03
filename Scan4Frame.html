@@ -1,0 +1,153 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+  <title>Land Pixel</title>
+  <style>
+    html,
+    body {
+       height: 100%;
+       margin: 0;
+       padding: 0;
+       overflow: hidden;
+   }
+   div#frame1,
+   div#frame2,
+   div#frame3,
+   div#frame4 {
+       width: 50%;
+       height: 47%;
+       float: left;
+   }
+   div#frame1 > iframe,
+   div#frame2 > iframe,
+   div#frame3 > iframe,
+   div#frame4 > iframe {
+    width: 100%;
+    height: 100%;
+    float:left;
+    box-sizing:border-box;
+  }
+   div#frame1 { top:0;   left:0;}
+   div#frame2 { top:0;   left:50%;}
+   div#frame3 { top:50%; left:0;}
+   div#frame4 { top:50%;   left:50%;}
+  </style>
+  <script>
+    document.onkeydown = function(e) {
+      switch (e.keyCode) {
+          case 37:
+          case 65:
+              document.getElementById('prev').click();
+              break;
+          case 39:
+          case 68:
+              document.getElementById('next').click();
+              break;
+      }
+    };
+
+    function btnPrevOnClick() {
+      var url = "https://play.pixels.xyz/pixels/share/";
+      let id = Number(document.getElementById("landid").value);
+      let step = Number(document.getElementById("step").value);
+      //land4
+      let prev = id - step;
+      if(prev < 1) {
+        prev = 5000;
+      }
+      document.getElementById('iframe4').src = url + prev;
+      document.getElementById('land4').textContent = String(prev).padStart(4, '_');
+      //land3
+      prev = prev - 1;
+      if(prev < 1) {
+        prev = 5000;
+      }
+      document.getElementById('iframe3').src = url + prev;
+      document.getElementById('land3').textContent = String(prev).padStart(4, '_');
+      //land2
+      prev = prev - 1;
+      if(prev < 1) {
+        prev = 5000;
+      }
+      document.getElementById('iframe2').src = url + prev;
+      document.getElementById('land2').textContent = String(prev).padStart(4, '_');
+      //land1
+      prev = prev - 1;
+      if(prev < 1) {
+        prev = 5000;
+      }
+      document.getElementById('iframe1').src = url + prev;
+      document.getElementById('land1').textContent = String(prev).padStart(4, '_');
+
+      document.getElementById('landid').value = prev;
+    }
+    
+    function btnNextOnClick() {
+      var url = "https://play.pixels.xyz/pixels/share/";
+      let id = Number(document.getElementById("landid").value);
+      let step = Number(document.getElementById("step").value);
+      //land1
+      let next = id + step;
+      if(next > 5000) {
+        next = 1;
+      }
+      document.getElementById('iframe1').src = url + next;
+      document.getElementById('land1').textContent = String(next).padStart(4, '_');
+      //land2
+      next = next + 1;
+      if(next > 5000) {
+        next = 1;
+      }
+      document.getElementById('iframe2').src = url + next;
+      document.getElementById('land2').textContent = String(next).padStart(4, '_');
+      //land3
+      next = next + 1;
+      if(next > 5000) {
+        next = 1;
+      }
+      document.getElementById('iframe3').src = url + next;
+      document.getElementById('land3').textContent = String(next).padStart(4, '_');
+      //land4
+      next = next + 1;
+      if(next > 5000) {
+        next = 1;
+      }
+      document.getElementById('iframe4').src = url + next;
+      document.getElementById('land4').textContent = String(next).padStart(4, '_');
+      
+      document.getElementById('landid').value = next;
+    }
+  </script>
+</head> 
+<body> 
+  <div style= "margin:3px">
+    <label for="landid">Land number: </label>
+    <input type="text" id="landid" name="landid" value="910" style= "width:70px">
+    <label for="step">Step: </label>
+    <input type="text" id="step" name="s" value="1" style= "width:50px">
+    <button type="button" id = "prev" onClick="btnPrevOnClick()">Prev</button>
+    <button type="button" id = "next" onClick="btnNextOnClick()">Next</button>
+  </div>
+  <div style= "margin:3px">
+    <span id="land1" style=" margin-right: 47%">_909</span>
+    <span id="land2">_910</span>
+  </div>
+  
+  <div id="frame1">
+    <iframe class="iframe1" id="iframe1" src="https://play.pixels.xyz/pixels/share/909"></iframe>
+  </div>
+  <div id="frame2">
+    <iframe class="iframe2" id="iframe2" src="https://play.pixels.xyz/pixels/share/910"></iframe>
+  </div>
+  <div style= "margin:3px">
+    <span id="land3" style=" margin-right: 47%">_911</span>
+    <span id="land4">_912</span>
+  </div>
+  <div id="frame3">
+    <iframe class="iframe3" id="iframe3" src="https://play.pixels.xyz/pixels/share/911"></iframe>
+  </div>
+  <div id="frame4">
+    <iframe class="iframe4" id="iframe4" src="https://play.pixels.xyz/pixels/share/912"></iframe>
+  </div>
+</body> 
+</html>
